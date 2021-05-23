@@ -1,0 +1,19 @@
+spring:
+  jpa:
+    database: POSTGRESQL
+    properties:
+      hibernate: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+  datasource:
+    driverClassName: org.postgresql.Driver
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/ticketing_system
+    username: ${POSTGRES_USERNAME}
+    password: ${POSTGRES_PASSWORD}
+
+asap:
+  authorized-issuer: ${ASAP_AUTHORIZED_ISSUERS}
+  audience: ${ASAP_AUDIENCE}
+  public-key-repo: ${PUBLIC_KEY_REPO}
+  public-key-id: ${PUBLIC_KEY_ID}

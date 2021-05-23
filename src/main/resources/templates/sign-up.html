@@ -1,0 +1,39 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<body>
+    <title>Spring Secured Vaadin</title>
+    <div th:fragment="content">
+        <form name="f" th:action="@{/sign-up}" th:object="${newUserDTO}" method="post">
+            <fieldset>
+                <legend>Sign up</legend>
+                <div th:if="${#fields.hasAnyErrors()}">
+                    <ul>
+                        <li th:each="err : ${#fields.allErrors()}" th:text="${err}" ></li>
+                    </ul>
+                </div>
+                <table>
+                    <tr>
+                        <td><label for="new-username">Username</label></td>
+                        <td><input type="text" id="new-username" name="new-username" th:field="*{username}"/></td>
+                    </tr>
+                    <tr>
+                        <td><label for="new-password">Password</label></td>
+                        <td><input type="password" id="new-password" name="new-password" th:field="*{password}"/></td>
+                    </tr>
+                    <tr>
+                        <td><label for="password-confirmation">Confirm password</label></td>
+                        <td><input type="password" id="password-confirmation" name="passwordConfirmation"/></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-actions">
+                                <button type="submit" class="btn">Sign up</button>
+                                <a th:href="@{/login}"><input type="button" value="Log in"/></a>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+    </div>
+    </body>
+</html>
